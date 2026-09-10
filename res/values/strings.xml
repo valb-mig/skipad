@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Skip Ad</string>
+    <string name="service_desc">Detecta e clica automaticamente no botão \"Pular anúncios\" do YouTube. Não usa internet nem coleta dados.</string>
+</resources>

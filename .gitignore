@@ -1,0 +1,11 @@
+# Build
+/build/
+*.apk
+*.idsig
+
+# Assinatura (não versionar chaves)
+*.keystore
+*.jks
+
+# Sistema
+.DS_Store
