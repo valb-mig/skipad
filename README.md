@@ -2,6 +2,9 @@
   <img src="art/logo-512.png" width="120" alt="Skip Ad logo" />
   <h1>Skip Ad</h1>
   <p>App Android que pula os anúncios do YouTube automaticamente.</p>
+  <a href="https://github.com/valb-mig/skipad/actions/workflows/build.yml">
+    <img src="https://github.com/valb-mig/skipad/actions/workflows/build.yml/badge.svg" alt="Build APK" />
+  </a>
 </div>
 
 ---

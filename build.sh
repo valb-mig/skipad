@@ -2,11 +2,25 @@
 set -euo pipefail
 
 # --- Configuração ---
-export ANDROID_HOME="${ANDROID_HOME:-/home/valb/Android/Sdk}"
-BT="$ANDROID_HOME/build-tools/36.1.0"
-AJAR="$ANDROID_HOME/platforms/android-36.1/android.jar"
+export ANDROID_HOME="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/Android/Sdk}}"
 MIN_SDK=24
 TARGET_SDK=34
+
+# Detecta o build-tools mais recente que tenha o aapt2.
+BT=""
+for d in $(ls -d "$ANDROID_HOME"/build-tools/*/ 2>/dev/null | sort -Vr); do
+    if [ -x "${d}aapt2" ]; then BT="${d%/}"; break; fi
+done
+# Detecta a platform (android.jar) mais recente instalada.
+AJAR="$(ls -1 "$ANDROID_HOME"/platforms/*/android.jar 2>/dev/null | sort -V | tail -1)"
+
+if [ -z "$BT" ] || [ -z "$AJAR" ]; then
+    echo "ERRO: SDK incompleto em $ANDROID_HOME (falta build-tools ou platform)." >&2
+    exit 1
+fi
+echo "SDK:        $ANDROID_HOME"
+echo "build-tools: $BT"
+echo "android.jar: $AJAR"
 
 PROJ="$(cd "$(dirname "$0")" && pwd)"
 BUILD="$PROJ/build"
