@@ -8,6 +8,14 @@
 
 Um `AccessibilityService` leve que detecta o botão **"Pular anúncios"** do YouTube assim que ele aparece e clica sozinho. Roda em segundo plano, reage a eventos (sem polling), **não usa internet e não pede nenhuma permissão perigosa**.
 
+<div align="center">
+  <img src="art/screenshot-full.png" width="280" alt="Tela do app Skip Ad" />
+</div>
+
+## Instalação rápida
+
+Baixe o APK mais recente em **[Releases](../../releases/latest)** e instale, ou compile do código (veja abaixo).
+
 ## Como funciona
 
 O serviço escuta apenas eventos do pacote do YouTube (`com.google.android.youtube`). Quando a tela muda, ele procura o botão de pular por:
